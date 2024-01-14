@@ -120,7 +120,7 @@ export default {
                 acquired_on: AcquiredOn.value,
                 customer_status: CustomerStatus.value,
             };
-            // Make a POST request to your Django API endpoint
+            // Make a POST request to your Django API endpointtest
             axios
                 // .post('http://127.0.0.1:8000/add-customer/', customerData)
                 .post('https://khawarkhan.pythonanywhere.com/add-customer/', customerData)
