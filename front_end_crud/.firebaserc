@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "vuedj-01"
-  }
+    "default": "vuedjango-452fc",
+    "staging": "vuedjango-452fc"
+  },
+  "targets": {},
+  "etags": {}
 }
