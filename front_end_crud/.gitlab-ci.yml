@@ -1,21 +1,16 @@
-image: node:latest
+image: node:alpine
+cache:
+  paths:
+    - node_modules/
 
-stages:
-  - build
-  - deploy
-
-before_script:
-  - npm install -g firebase-tools
-
-build:
-  stage: build
-  script:
-    - npm install
-    - npm run build
-
-deploy:
+deploy_production:
   stage: deploy
-  script:
-    - firebase deploy --token "$FIREBASE_TOKEN" --non-interactive
+  environment: Production
   only:
     - master
+  script:
+    - npm install
+    - npm i -g firebase-tools
+    - npm run build
+    - firebase deploy --non-interactive --token 
+    - "1//03jJh-36SI3kfCgYIARAAGAMSNwF-L9IrOZHA2XJhzYkslAP6ChezwcYci4XW5pcw5uExwtvGUuWaja6mg2aG6avmP4QkTv2Kt48"
