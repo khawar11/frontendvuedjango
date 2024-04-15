@@ -13,4 +13,4 @@ deploy_production:
     - npm i -g firebase-tools
     - npm run build
     - firebase deploy --non-interactive --token 
-    - "1//03rRPVfZ-JG8qCgYIARAAGAMSNwF-L9Ir7OZj3BNeO0tolfXn5gvG_CFtssoq9Z8bW39u0TjQV9rYrF-kGkg-bSI7ug58IOJ5S5g"
+    - "1//03rRPVfZ-JG8qCgYIARAAGAMSNwF-L9Ir7OZj3BNeO0tolfXn5gvG_CFtssoq9Z8bW39u0TjQV9rYrF-kGkg-bSI7ug58IOJ5S5g" 
