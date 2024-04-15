@@ -4,7 +4,7 @@ cache:
     - node_modules/
 
 deploy_production:
-  stage: deploy
+  stage: deploy 
   environment: Production
   only:
     - master
