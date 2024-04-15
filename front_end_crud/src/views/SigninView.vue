@@ -1,5 +1,6 @@
 <template>
 <Header />
+<div id = "errorMessage" v-if="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
 <form ref="signInForm" novalidate @submit.prevent="checkForm">
     <div class="d-flex justify-content-center align-items-center vh-100">
         <MDBRow class="g-3" ref="signInForm" novalidate @submit.prevent="checkForm">
@@ -13,10 +14,10 @@
                 <MDBInput label="Password " id="password" type="password" invalidFeedback="Please enter a password" v-model="password" required />
             </MDBCol>
             <MDBCol md="12">
-                <MDBCheckbox label="Agree to terms and conditions" v-model="checkbox" invalidFeedback="You must agree before submitting." required />
+                <MDBCheckbox id="checkbox" label="Agree to terms and conditions" v-model="checkbox" invalidFeedback="You must agree before submitting." required />
             </MDBCol>
             <MDBCol md="12">
-                <MDBBtn color="primary" type="submit">Sign In</MDBBtn>
+                <MDBBtn id="signin_btn" color="primary" type="submit">Sign In</MDBBtn>
             </MDBCol>
         </MDBRow>
     </div>
@@ -76,6 +77,7 @@ export default {
         const email = ref('');
         const password = ref('');
         const checkbox = ref(false);
+        const errorMessage = ref('');
 
         // Form validation function
         const checkForm = async (e) => {
@@ -99,12 +101,13 @@ export default {
                     if (response.status === 200) {
                         console.log("User logged in successfully!");
                         router.push({name: 'customer'})
-                        // Optionally, you can redirect to another page or perform other actions.
                     } else {
                         console.error('User not found:', response.data);
+                        errorMessage.value = response.data.detail || 'Invalid credentials';
                     }
                 } catch (error) {
                     console.error('Sign In Error:', error);
+                    errorMessage.value = 'username or email and password are invalid';
                 }
             } else {
                 // Invalid form, show validation errors
@@ -120,6 +123,7 @@ export default {
             password,
             checkbox,
             checkForm,
+            errorMessage,
         };
     },
 };

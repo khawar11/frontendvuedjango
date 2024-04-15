@@ -4,7 +4,7 @@
     <div class="row m-0">
         <div class="col-md-6 p-0">
             <div class="card filter-card m-2 text-center">
-                <h6 class="p-4">Total Customers</h6>
+                <h6 id="total_customers" class="p-4">Total Customers</h6>
                 <h4><strong class="m-4">{{ totalCustomers }}</strong></h4>
             </div>
         </div>

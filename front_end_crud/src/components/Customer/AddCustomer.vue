@@ -1,9 +1,9 @@
 <template>
-<MDBBtn class="mt-2" color="primary" aria-controls="exampleModalCenteredScrollable" @click="exampleModalCenteredScrollable = true">
+<MDBBtn id="add_btn" class="mt-2" color="primary" aria-controls="exampleModalCenteredScrollable" @click="exampleModalCenteredScrollable = true">
     Add Customer
 </MDBBtn>
 <MDBModal id="exampleModalCenteredScrollable" tabindex="-1" labelledby="exampleModalCenteredScrollableTitle" v-model="exampleModalCenteredScrollable" centered scrollable>
-    <MDBModalHeader>
+    <MDBModalHeader id="model_add_customer_header">
         <MDBModalTitle id="exampleModalCenteredScrollableTitle">
             ADD Customer
         </MDBModalTitle>
