@@ -1,0 +1,31 @@
+image: node:latest  # Use Node.js image for CI/CD environment
+
+cache:  # Cache dependencies to speed up builds
+  paths:
+    - front_end_crud/node_modules/  # Adjust the path to the node_modules directory
+
+stages:  # Define stages for CI/CD pipeline
+  - build
+  - deploy
+
+build:  # Build stage
+  stage: build  # Define the stage for this job
+  script:
+    - cd front_end_crud/  # Navigate to the directory containing package.json
+    - npm install  # Install project dependencies
+    - npm run build  # Build the Vue.js app
+  artifacts:  # Define artifacts to be passed to the deploy stage
+    paths:
+      - front_end_crud/dist/  # Specify the directory containing the built app
+
+deploy_production:  # Deploy stage
+  stage: deploy  # Define the stage for this job
+  environment: Production  # Specify environment name
+  only:
+    - master  # Trigger deployment only on the master branch
+  script:
+    - cd front_end_crud/  # Navigate to the directory containing package.json
+    - npm install -g firebase-tools  # Install Firebase CLI globally
+    - firebase deploy --token "$FIREBASE_TOKEN" --only hosting  # Deploy to Firebase Hosting
+  dependencies:
+    - build  # Ensure that the build job is completed before deployment
