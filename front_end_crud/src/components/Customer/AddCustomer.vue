@@ -129,7 +129,7 @@ export default {
 
                     console.log('Customer added successfully:', response.data);
 
-                    // You can also close the modal here if needed test
+                    // You can also close the modal here if needed test-1
                     exampleModalCenteredScrollable.value = false;
                     // Optionally, reset the form fields
                     companyName.value = '';
