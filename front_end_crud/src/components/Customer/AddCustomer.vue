@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group">
                     <label for="customer_status">Customer Status</label>
-                    <select v-model="CustomerStatus" class="form-control" id="customer_status" required>
+                    <select v-model="CustomerStatus" placeholder="Status" class="form-control" id="customer_status" required>
                         <option value="active">Active</option>
                         <option value="inactive">Inactive</option>
                     </select>
